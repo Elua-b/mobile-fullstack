@@ -63,7 +63,7 @@ const Login = () => {
 
     }
     return (
-        <View className='w-full px-6 flex flex-col gap-y-4'>
+        <View className='w-full  px-6 flex flex-col gap-y-4'>
             <Text className='text-blue-100 text-center text-xl font-semibold'>Welcome{" "}...</Text>
             <Text className='text-gray-100 font-medium text-md text-center py-3'>Please fill in the information</Text>
             <View className='flex flex-col pb-5'>

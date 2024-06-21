@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://10.5.223.134:4000/api/v1';
+const API_URL = 'http://10.5.222.253:4000/api/v1';
 
 export const sendRequest = async (url: string,method: string, payload?: Object, headers?: any) => {
     try {
@@ -22,6 +22,6 @@ export const sendRequest = async (url: string,method: string, payload?: Object, 
         return response?.data;
     } catch (err: any) {
         console.log("Request failed:", err.response ? err.response.data : err.message);
-        throw new Error(err.message);
+        throw new Error(err.mesa2wsage);
     }
 };

@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { SafeAreaView } from 'react-native';
 import { getUserProfile } from '@/services/role.service';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { logout } from '@/redux/slices/userSlice';
+// import { logout } from '@/redux/slices/userSlice';
+import { router } from 'expo-router';
 
 const NotificationTab = () => {
     const dispatch = useDispatch();
     const [profile, setProfile] = useState({});
     const [error, setEror] = useState("");
     const user = useSelector((state: any) => state.users.user);
+    const state=useSelector((state:any)=>state)
     useEffect(() => {
         const getProfile = async () => {
             try {
@@ -26,11 +28,14 @@ const NotificationTab = () => {
         getProfile()
 
     }, [user])
-    const handleLogout = () => {
-        dispatch(logout())
+    const handleLogout = async() => {
+        state.isLoggedIn = false;
+        state.token = "";
+        state.user = null;
+       return router.push("/(auth)/login")
     }
     return (
-        <SafeAreaView className='h-[87%] '>
+        <SafeAreaView className='h-[87%]'>
             <View className='w-full shadow-md rounded-md flex-1 bg-white h-full pt-20 px-4'>
                 <View className='w-full flex  items-center'>
                     <View className='w-16 h-16 rounded-full bg-primary flex justify-center items-center'>
